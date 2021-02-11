@@ -30,7 +30,6 @@ const styles={
     title:{
         color: 'black',
         fontsize: 25,
-        fonttype: 'bold'
     },
     itemDetail:{
         color: 'grey',
