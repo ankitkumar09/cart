@@ -10,10 +10,36 @@ class CartItem extends React.Component{
             img:'',
         }
         this.increaseQuantity=this.increaseQuantity.bind(this);
+        this.decreaseQuantity=this.decreaseQuantity.bind(this);
     }
 
-    increaseQuantity(){
-        console.log('this.state', this.state);
+    increaseQuantity = () => {
+        // this.state.qty+=1;
+        // console.log('this.state', this.state);
+
+        // setState form 1 . REact will do shallow merging here and after 
+        // setstate automatically re render or component
+        // it changes only one particalur component
+        // this.setState({
+        //     qty:this.state.qty+1
+        // });
+
+        // setState form 2
+        //if preveious state required we use form 2
+        this.setState((prevState) =>{
+            return{
+                qty:prevState.qty +1
+            }
+
+        });
+    }
+    decreaseQuantity =()=>{
+        this.setState((prevState) =>{
+            return{
+                qty:prevState.qty -1
+            }
+
+        });
     }
     
     render(){
@@ -33,13 +59,15 @@ class CartItem extends React.Component{
                         alt="increase" 
                         className="action-icons" 
                         src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1613078289~hmac=f87d744804e32b4d33abecc2167924bb"
-                        onClick={this.increaseQuantity.bind(this)}
+                        onClick={this.increaseQuantity}
                         />
 
                         <img 
-                        alt="decrease" 
-                        className="action-icons" 
-                        src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1613078446~hmac=39844957c5e37ddd3470f67e57f5c721"/>
+                            alt="decrease" 
+                            className="action-icons" 
+                            src="https://www.flaticon.com/svg/vstatic/svg/992/992683.svg?token=exp=1613078446~hmac=39844957c5e37ddd3470f67e57f5c721"
+                            onClick={this.decreaseQuantity}
+                        />
 
                         <img 
                         alt="delete" 
