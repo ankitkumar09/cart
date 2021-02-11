@@ -20,24 +20,37 @@ class CartItem extends React.Component{
         // setState form 1 . REact will do shallow merging here and after 
         // setstate automatically re render or component
         // it changes only one particalur component
+        // No mattar how many times form 1 is repeated react 
+        // reads only the last setState object after all of them
         // this.setState({
         //     qty:this.state.qty+1
         // });
+        // this.setState({
+        //     qty:this.state.qty+10
+        // });
+        // this.setState({
+        //     qty:this.state.qty+5
+        // });
+        this.setState({
+            qty:this.state.qty+1
+        });
 
         // setState form 2
         //if preveious state required we use form 2
-        this.setState((prevState) =>{
-            return{
-                qty:prevState.qty +1
-            }
+        // this.setState((prevState) =>{
+        //     return{
+        //         qty:prevState.qty +1
+        //     }
 
-        });
+        // });
     }
     decreaseQuantity =()=>{
+        
         this.setState((prevState) =>{
             return{
                 qty:prevState.qty -1
             }
+
 
         });
     }
