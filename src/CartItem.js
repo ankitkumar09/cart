@@ -1,7 +1,7 @@
 import React from 'react';
 
 class CartItem extends React.Component{
-    
+
     // testing () {
   //   const promise = new Promise((resolve, reject) => {
   //     setTimeout(() => {
@@ -21,56 +21,55 @@ class CartItem extends React.Component{
   //   });
   // }
 
-    increaseQuantity = () => {
-        // this.state.qty+=1;
-        // console.log('this.state', this.state);
+    // increaseQuantity = () => {
+    //     // this.state.qty+=1;
+    //     // console.log('this.state', this.state);
 
-        // setState form 1 . REact will do shallow merging here and after 
-        // setstate automatically re render or component
-        // it changes only one particalur component
-        // No mattar how many times form 1 is repeated react 
-        // reads only the last setState object after all of them
-        // this.setState({
-        //     qty:this.state.qty+1
-        // });
-        // this.setState({
-        //     qty:this.state.qty+10
-        // });
-        // this.setState({
-        //     qty:this.state.qty+5
-        // });
-        // this.setState({
-        //     qty:this.state.qty+1
-        // });
+    //     // setState form 1 . REact will do shallow merging here and after 
+    //     // setstate automatically re render or component
+    //     // it changes only one particalur component
+    //     // No mattar how many times form 1 is repeated react 
+    //     // reads only the last setState object after all of them
+    //     // this.setState({
+    //     //     qty:this.state.qty+1
+    //     // });
+    //     // this.setState({
+    //     //     qty:this.state.qty+10
+    //     // });
+    //     // this.setState({
+    //     //     qty:this.state.qty+5
+    //     // });
+    //     // this.setState({
+    //     //     qty:this.state.qty+1
+    //     // });
 
-        // setState form 2
-        //if preveious state required we use form 2
-        this.setState((prevState) =>{
-            return{
-                qty:prevState.qty +1
-            }
+    //     // setState form 2
+    //     //if preveious state required we use form 2
+    //     this.setState((prevState) =>{
+    //         return{
+    //             qty:prevState.qty +1
+    //         }
 
-        });
-    }
+    //     });
+    // }
      
-    decreaseQuantity =()=>{
-        const{qty}=this.state;
-        if(qty==0){
-            return;
-        }
-        this.setState((prevState) =>{
-            return{
-                qty:prevState.qty -1
-            }
-        },
-        //if we need to know the current state of the component
-        // ()=>{
-        //   console.log('this.state ',this.state);
+    // decreaseQuantity =()=>{
+    //     const{qty}=this.state;
+    //     if(qty==0){
+    //         return;
+    //     }
+    //     this.setState((prevState) =>{
+    //         return{
+    //             qty:prevState.qty -1
+    //         }
+    //     },
+    //     //if we need to know the current state of the component
+    //     // ()=>{
+    //     //   console.log('this.state ',this.state);
 
-        // }
-        );
-    }
-    
+    //     // }
+    //     );
+    // }
     render(){
         console.log("this.props", this.props);
         const{price, title, qty}= this.props.product; //object destructuring
@@ -89,7 +88,7 @@ class CartItem extends React.Component{
                         alt="increase" 
                         className="action-icons" 
                         src="https://www.flaticon.com/svg/vstatic/svg/992/992651.svg?token=exp=1613078289~hmac=f87d744804e32b4d33abecc2167924bb"
-                        onClick={this.increaseQuantity}
+                        onClick={() => this.props.onIncreaseQuantity(this.props.product)}
                         />
 
                         <img 
