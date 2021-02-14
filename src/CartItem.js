@@ -1,17 +1,25 @@
 import React from 'react';
 
 class CartItem extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            price:999,
-            title:'Mobile phone',
-            qty: 1,
-            img:'',
-        }
-        this.increaseQuantity=this.increaseQuantity.bind(this);
-        this.decreaseQuantity=this.decreaseQuantity.bind(this);
-    }
+    
+    // testing () {
+  //   const promise = new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve('done');
+  //     }, 5000);
+  //   })
+
+  //   promise.then(() => {
+  //     // setState acts like a synchronus call
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     console.log('state', this.state);
+  //   });
+  // }
 
     increaseQuantity = () => {
         // this.state.qty+=1;
@@ -42,11 +50,6 @@ class CartItem extends React.Component{
                 qty:prevState.qty +1
             }
 
-        },
-        //if we need to know the current state of the component
-        ()=>{
-          console.log('this.state ',this.state);
-
         });
     }
      
@@ -61,14 +64,16 @@ class CartItem extends React.Component{
             }
         },
         //if we need to know the current state of the component
-        ()=>{
-          console.log('this.state ',this.state);
+        // ()=>{
+        //   console.log('this.state ',this.state);
 
-        });
+        // }
+        );
     }
     
     render(){
-        const{price, title, qty}= this.state; //object destructuring
+        console.log("this.props", this.props);
+        const{price, title, qty}= this.props.product; //object destructuring
         return(
             <div className="cart-item">
                 <div className="left-block">
