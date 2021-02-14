@@ -8,7 +8,7 @@ class Cart extends React.Component {
       products: [
         {
           price: 99,
-          title: 'Watch',
+          title: 'Watch', 
           qty: 1,
           img: '',
           id: 1
